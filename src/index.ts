@@ -1,5 +1,6 @@
 import bodyParser from 'body-parser';
 import express from 'express';
+import cors from 'cors';
 
 import {
   createProduct,
@@ -15,7 +16,7 @@ import {
 const app = express();
 const PORT = process.env.PORT || 5000;
 app.use(bodyParser.json());
-
+app.use(cors({  }));
 app.route('/products').get(getListHandler).post(createProduct);
 app.route('/products/:id').get(getProductByIDHandler).delete(deleteProductHandler);
 
